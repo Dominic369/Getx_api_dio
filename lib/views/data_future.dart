@@ -10,6 +10,7 @@ class DataFutureView extends StatefulWidget {
 }
 
 class _DataFutureViewState extends State<DataFutureView> {
+  @override
   void initState() {
     mainController.fetchUser();
     super.initState();
@@ -19,7 +20,7 @@ class _DataFutureViewState extends State<DataFutureView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'GetX-ดึงข้อมูล (Dio)',
           style: TextStyle(color: Colors.white),
         ),
@@ -34,9 +35,21 @@ class _DataFutureViewState extends State<DataFutureView> {
                   itemCount: mainController.user.length,
                   itemBuilder: (context, index) {
                     return ListTile(
-                      title: Text('${mainController.user[index].name}'),
-                      subtitle: Text('${mainController.user[index].email}'),
-                    );
+                        leading: Text('${mainController.user[index].id}'),
+                        title:
+                            Text('Name : ${mainController.user[index].name}'),
+                        subtitle: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                                'Username : ${mainController.user[index].username}'),
+                            Text('Email : ${mainController.user[index].email}'),
+                            Text('Phone : ${mainController.user[index].phone}'),
+                            Text(
+                                'Website : ${mainController.user[index].website}'),
+                          ],
+                        ));
                   });
             },
           ))
