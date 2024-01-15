@@ -14,6 +14,7 @@ class Main_controller extends GetxController {
           user.add(User.fromJson(item));
         }
       } else {
+        // ignore: avoid_print
         print('Backend error');
       } //).catchError((onError) {printError();
     });
