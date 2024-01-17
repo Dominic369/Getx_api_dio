@@ -1,6 +1,7 @@
 import 'dart:convert';
 
-List<User> userFromjson(String str) =>
+// ignore: non_constant_identifier_names
+List<User> UserFromjson(String str) =>
     List<User>.from(json.decode(str).map((x) => User.fromJson(x)));
 
 String userToJson(List<User> data) =>

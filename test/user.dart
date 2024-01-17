@@ -22,7 +22,7 @@ class _UserViewState extends State<UserView> {
       body: SafeArea(
           child: Column(
         children: [
-          Expanded(child: GetX<Main_controller>(
+          Expanded(child: GetX<MainController>(
             builder: (controller) {
               return ListView.builder(
                   itemCount: mainController.user.length,
@@ -39,5 +39,5 @@ class _UserViewState extends State<UserView> {
     );
   }
 
-  final mainController = Get.put(Main_controller());
+  final mainController = Get.put(MainController());
 }

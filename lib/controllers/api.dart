@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 
 // ignore: camel_case_types
-class apiService {
+class ApiService {
   var dio = Dio();
 
   Future<dynamic> apiServices() async {

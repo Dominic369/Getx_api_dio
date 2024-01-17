@@ -29,7 +29,7 @@ class _DataFutureViewState extends State<DataFutureView> {
       body: SafeArea(
           child: Column(
         children: [
-          Expanded(child: GetX<Main_controller>(
+          Expanded(child: GetX<MainController>(
             builder: (controller) {
               return ListView.builder(
                   itemCount: mainController.user.length,
@@ -58,5 +58,5 @@ class _DataFutureViewState extends State<DataFutureView> {
     );
   }
 
-  final mainController = Get.put(Main_controller());
+  final mainController = Get.put(MainController());
 }
