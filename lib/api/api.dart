@@ -16,6 +16,7 @@ var API_DPO = Dio(
 
 const baseUrl = 'https://jsonplaceholder.typicode.com';
 
+// ignore: non_constant_identifier_names
 var API_DPO = Dio(
   BaseOptions(
     baseUrl: baseUrl,
