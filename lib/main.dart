@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_flutter_4/views/data_future.dart';
+import 'package:test_flutter_4/views/main_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity),
-      home: const DataFutureView(),
+      home: const MainView(),
     );
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:test_flutter_4/controllers/main_controller.dart';
 
+/*
 class UserView extends StatefulWidget {
   const UserView({super.key});
 
@@ -41,3 +42,4 @@ class _UserViewState extends State<UserView> {
 
   final mainController = Get.put(MainController());
 }
+*/
