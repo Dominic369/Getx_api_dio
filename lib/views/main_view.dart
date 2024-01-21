@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:test_flutter_4/controllers/main_controller.dart';
@@ -24,7 +25,9 @@ class MainView extends StatelessWidget {
           return FutureBuilder(
             future: controller.dataFuture.futureBuilding,
             builder: (context, snapshot) {
-              print('Connection State: ${snapshot.connectionState}');
+              if (kDebugMode) {
+                print('Connection State: ${snapshot.connectionState}');
+              }
 
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return const CircularProgressIndicator(
@@ -36,17 +39,25 @@ class MainView extends StatelessWidget {
               } else if (snapshot.data == null ||
                   !snapshot.hasData ||
                   snapshot.data!.isEmpty) {
-                return Text('No data available');
+                return const Text('No data available');
               } else {
                 // Safely cast the data to List<ApiDataModel>
                 List<ApiDataModel> dataList =
                     (snapshot.data as List<dynamic>).cast<ApiDataModel>();
 
-                return ListView.builder(
+                return ListView.separated(
+                  separatorBuilder: (context, index) {
+                    return const Divider(
+                      thickness: 1,
+                    );
+                  },
                   itemCount: dataList.length,
                   itemBuilder: (context, index) {
                     return ListTile(
-                      leading: Text('${dataList[index].id}'),
+                      leading: Text(
+                        '${dataList[index].id}',
+                        style: const TextStyle(fontSize: 18),
+                      ),
                       title: Text('Name : ${dataList[index].name}'),
                       subtitle: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
